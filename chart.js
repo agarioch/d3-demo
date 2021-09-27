@@ -27,7 +27,7 @@ async function drawLineChart () {
     .domain(d3.extent(dataset, yAccessor))
     .range([dimensions.boundedHeight, 0]);
   
-  const xScale = d3.scaleLinear()
+  const xScale = d3.scaleTime()
     .domain(d3.extent(dataset, xAccessor))
     .range([0, dimensions.boundedWidth]);
 
@@ -39,7 +39,7 @@ async function drawLineChart () {
 
   // bounds - svg group element translated & sized based on margins
   const bounds = wrapper.append('g')
-    .style('tranform', `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`);
+    .style('transform', `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`);
 
   // share plot area below freezing
   const freezingTemperaturePlacement = yScale(32);
@@ -65,11 +65,19 @@ async function drawLineChart () {
     .attr('stroke', '#888888')
     .attr('stroke-width', 2);
 
+  // create axis
+  const yAxisGenerator = d3.axisLeft()
+    .scale(yScale);
+
+  const yAxis = bounds.append('g')
+    .call(yAxisGenerator);
+
+  const xAxisGenerator = d3.axisBottom()
+    .scale(xScale);
+  
+  const xAxis = bounds.append('g')
+    .call(xAxisGenerator)
+    .style('transform', `translateY(${dimensions.boundedHeight}px)`);
 }
-
-
-
-
-
 
 drawLineChart();
