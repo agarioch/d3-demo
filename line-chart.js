@@ -48,7 +48,7 @@ async function drawLineChart () {
     .attr('width', dimensions.boundedWidth)
     .attr('y', freezingTemperaturePlacement)
     .attr('height', dimensions.boundedHeight - freezingTemperaturePlacement)
-    .attr('fill', '#e0f3f3');
+    .attr('fill', '#DCEDF8');
 
   // RE: styles can be applied in 3 ways
   //  1. inline style:  .style('css-prop', 'prop-value')
@@ -62,7 +62,7 @@ async function drawLineChart () {
   const line = bounds.append('path')
     .attr('d', lineGenerator(dataset))
     .attr('fill', 'none')
-    .attr('stroke', '#888888')
+    .attr('stroke', '#454551')
     .attr('stroke-width', 2);
 
   // create axis

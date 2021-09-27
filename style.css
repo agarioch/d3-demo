@@ -1,0 +1,56 @@
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* RESETS OVER */
+body {
+  background-color: #eeeeee;
+  font-family: 'Gill Sans MT', 'Gill Sans', Calibri, 'Trebuchet MS', sans-serif;
+  color: #454551;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+h1 {
+  font-size: 150%;
+  font-weight: 600;
+  color: #2582BB;
+}
+
+.wrapper {
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.main {
+  padding: 20px;
+}
+
+.head {
+  width: auto;
+  height: 5px;
+  background-color: #4EA6DC;
+  margin-bottom: 5px;
+}
+
+.axisLabel {
+  font-size: 1.1em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
