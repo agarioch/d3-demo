@@ -58,25 +58,6 @@ function drawScatter () {
   plotPoints(dataset);
   //#endregion DRAW DATA
 
-  //#region TESTING ENTER EXIT
-  // function drawDots (dataset, color) {
-  //   const dots = plot.selectAll('circle').data(dataset);
-  //   dots
-  //     .enter().append('circle')
-  //     .attr('cx', d => xScale(xAccessor(d)))
-  //     .attr('cy', d => yScale(yAccessor(d)))
-  //     .attr('r', 5)
-  //     .attr('fill', color);
-  //   dots
-  //     .exit()
-  //     .attr('fill', 'red');
-  // }
-
-  // drawDots(dataset.slice(0,200), 'darkgrey');
-  // setTimeout(()=> drawDots(dataset, 'cornflowerblue'),3000);
-  // setTimeout(()=> drawDots(dataset.slice(0,100), 'cornflowerblue'),6000);
-  //#endregion TESTING ENTER EXIT
-
   //#region DRAW PERIPHERALS
   const xAxisGenerator = d3.axisBottom(xScale);
   const xAxis = plot.append('g').call(xAxisGenerator)

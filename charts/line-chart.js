@@ -4,7 +4,7 @@ function drawLineChart () {
 
   // data accessors - reusable functions to access data
   const dateParser = d3.timeParse('%Y-%m-%d');
-  const yAccessor = d => d.temperatureMax;
+  const yAccessor = d => (d.temperatureMax - 32) * 5/9;
   const xAccessor = d => dateParser(d.date);
 
   // plot dimensions
@@ -42,7 +42,7 @@ function drawLineChart () {
     .style('transform', `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`);
 
   // share plot area below freezing
-  const freezingTemperaturePlacement = yScale(32);
+  const freezingTemperaturePlacement = yScale(0);
   const freezingTemperatures = bounds.append('rect')
     .attr('x', 0)
     .attr('width', dimensions.boundedWidth)

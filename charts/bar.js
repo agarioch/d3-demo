@@ -2,19 +2,19 @@
 
 function drawBar () {
   //#region DATASET
-  const metricAccessor = (d) => d.humidity;
+  const metricAccessor = (d) => (d.temperatureMax - 32) * 5/9;
   const yAccessor = d => d.length; // distribution frequency
   //#endregion DATASET
 
   //#region CHART DIMENSIONS
-  const width = 600;
+  const width =  window.innerWidth * 0.8;
   const dimensions = {
     width,
     height: width * 0.6,
     margin: {
-      top: 30,
+      top: 40,
       right: 10,
-      bottom: 50,
+      bottom: 30,
       left: 50
     }
   };
@@ -67,7 +67,7 @@ function drawBar () {
   
   const barText = binGroups.filter(yAccessor)
     .append('text')
-    .attr('x', d => xScale(d.x0) + (xScale(d.x1) - xScale(d.x0)) /2)
+    .attr('x', d => xScale(d.x0) + (xScale(d.x1) - xScale(d.x0))/2)
     .attr('y', d => yScale(yAccessor(d)) -5)
     .text(d => yAccessor(d))
     .attr('class', 'label');
@@ -76,13 +76,25 @@ function drawBar () {
 
   const meanLine = plot.append('line')
     .attr('x1', xScale(mean))
-    .attr('y1', 0)
+    .attr('y1', -10)
     .attr('x2', xScale(mean))
     .attr('y2', dimensions.plotHeight)
-    .attr('stroke', '#686868  ');
+    .attr('stroke', '#686868')
+    .attr('stroke-dasharray', '2px 4px');
+
+  const meanLabel = plot.append('text')
+    .attr('x', xScale(mean))
+    .attr('y', -15)
+    .text('mean')
+    .attr('class', 'label');
   //#endregion DRAW DATA
 
   //#region DRAW PERIPHERALS
+  const axisGenerator = d3.axisBottom()
+    .scale(xScale);
 
+  const xAxis = plot.append('g')
+    .call(axisGenerator)
+    .style('transform', `translateY(${dimensions.plotHeight}px)`);
   //#endregion
 }
