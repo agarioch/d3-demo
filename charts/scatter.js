@@ -1,11 +1,11 @@
-async function drawScatter () {
+'use strict';
+function drawScatter () {
   
   //#region ACCESS DATA
-  let dataset = await d3.json('./data/my_weather_data.json');
-  
   const xAccessor = d => d.dewPoint;
   const yAccessor = d => d.humidity;
   const colourAccessor = d => d.cloudCover;
+
   //#endregion ACCESS DATA
 
   //#region CHART DIMENSIONS
@@ -104,5 +104,3 @@ async function drawScatter () {
   //#endregion DRAW PERIPHERALS
 
 }
-
-drawScatter();

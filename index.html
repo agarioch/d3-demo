@@ -13,18 +13,31 @@
 
   <div class="head"></div>
   <div class="main">
+    <h1>Enter, Update, Append</h1>
+    <p>Call drawCircles(data)...</p>
+    <div id="wrapper-sandbox" class="wrapper">
+      <svg id="svg-sandbox" class="sandbox""></svg>
+    </div>
+
     <h1>Line</h1>
     <p>Temperature by month</p>
-    <div id="wrapper" class="wrapper"></div>
+    <div id="wrapper-line" class="wrapper"></div>
   
     <h1>Scatter</h1>
     <p>Dew Point vs. Humidity (Colour by Cloud Cover)</p>
     <div id="wrapper-scatter" class="wrapper"></div>
+    
+    <h1>Bar</h1>
+    <p># Days by Humidity Level</p>
+    <div id="wrapper-bar" class="wrapper"></div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-  <script src="./line-chart.js"></script>
-  <script src="./scatter.js"></script>
+  <script src="./charts/line-chart.js"></script>
+  <script src="./charts/scatter.js"></script>
+  <script src="./charts/bar.js"></script>
+  <script src="./charts/circles.js"></script>
+  <script src="./app.js"></script>
 
 </body>
 

@@ -1,6 +1,6 @@
-async function drawLineChart () {
-  // dataset
-  const dataset = await d3.json('./data/nyc_weather_data.json');
+'use strict';
+
+function drawLineChart () {
 
   // data accessors - reusable functions to access data
   const dateParser = d3.timeParse('%Y-%m-%d');
@@ -32,7 +32,7 @@ async function drawLineChart () {
     .range([0, dimensions.boundedWidth]);
 
   // wrapper - svg with specified dimensions
-  const wrapper = d3.select('#wrapper')
+  const wrapper = d3.select('#wrapper-line')
     .append('svg')
     .attr('width', dimensions.width)
     .attr('height', dimensions.height);
@@ -78,6 +78,4 @@ async function drawLineChart () {
   const xAxis = bounds.append('g')
     .call(xAxisGenerator)
     .style('transform', `translateY(${dimensions.boundedHeight}px)`);
-}
-
-drawLineChart();
+} 
