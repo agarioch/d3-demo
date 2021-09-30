@@ -53,8 +53,6 @@ function scaleCircles (data) {
   // Map data to any existing SVG circles
   const circles = plot.selectAll('circle').data(data);
 
-
-
   // Colour any existing circles grey and make sure they are in the right position
   circles.attr('fill', 'darkrgrey')
     .attr('cx', d => xScale(d))
